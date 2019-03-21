@@ -3,8 +3,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const path = require('path');
 
-
 app.use(express.static('build'));
+
 app.use('/api/skills', require('./routes/skill-routes'));
 
 app.get('/*', (req, res) => {
@@ -12,5 +12,5 @@ app.get('/*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log('App running on ${PORT}');
+  console.log(`App is up and running. Listening on port ${PORT}`);
 });

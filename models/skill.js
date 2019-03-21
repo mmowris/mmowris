@@ -1,5 +1,4 @@
 const db = require('../db/config');
-
 const Skill = {};
 
 Skill.findAll = () => {

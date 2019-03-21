@@ -1,9 +1,9 @@
-const Skill = require('../models/skill');
+const Skill =  require('../models/Skill');
+const skillController = {};
 
-const skillCtrl = {};
-
-skillCtrl.findAll = (req, res) => {
-  Skill.findAll().then(sills => {
+skillController.findAll = (req, res) => {
+  Skill.findAll()
+  .then(skills => {
     res.json({
       message: 'Success',
       data: skills
@@ -15,11 +15,12 @@ skillCtrl.findAll = (req, res) => {
   });
 };
 
-skillCtrl.findById = (req, res) => {
-  Skill.findById().then(sills => {
+skillController.findById = (req, res) => {
+  Skill.findById(req.params.id)
+  .then(skill => {
     res.json({
-      message: 'Success',
-      data: skills
+      message: "Success",
+      data: skill
     });
   })
   .catch(err => {
@@ -28,4 +29,4 @@ skillCtrl.findById = (req, res) => {
   });
 };
 
-module.exports = skillCtrl;
+module.exports = skillController;
